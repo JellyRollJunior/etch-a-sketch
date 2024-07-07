@@ -1,7 +1,9 @@
 body {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
   box-sizing: border-box;
+  gap: 12px;
 }
 
 #grid-container {

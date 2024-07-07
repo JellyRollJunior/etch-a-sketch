@@ -1,12 +1,12 @@
 const gridContainer = document.querySelector("#grid-container");
 
-// Create 16 x 16 grid
-for (let i = 0; i < 30; i++) {
+// Create default 16 x 16 grid
+for (let i = 0; i < 16; i++) {
     const gridColumn = document.createElement("div");
     gridColumn.classList.add("grid-column");
     gridContainer.appendChild(gridColumn);
 
-    for (let j = 0; j < 30; j++) {
+    for (let j = 0; j < 16; j++) {
         const square = document.createElement("div");
         square.classList.add("grid-square");
         gridColumn.appendChild(square);
