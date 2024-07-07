@@ -1,21 +1,29 @@
 body {
-    display: flex;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
+  box-sizing: border-box;
 }
 
 #grid-container {
   display: flex;
   border: solid 1px black;
-  width: fit-content;
+  width: 400px;
+  height: 400px;
+}
+
+.grid-column {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  align-items: stretch;
 }
 
 .grid-square {
-  height: 25px;
-  width: 25px;
+  flex: 1;
   background-color: lightpink;
   border: solid 1px black;
 }
 
 .hovered {
-    background-color: lightblue;
+  background-color: lightblue;
 }
