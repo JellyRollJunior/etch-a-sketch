@@ -1,0 +1,12 @@
+#grid-container {
+  display: flex;
+  border: solid 1px black;
+  width: fit-content;
+}
+
+.grid-square {
+  height: 25px;
+  width: 25px;
+  background-color: lightpink;
+  border: solid 1px black;
+}
