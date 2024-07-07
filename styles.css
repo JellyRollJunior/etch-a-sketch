@@ -10,3 +10,7 @@
   background-color: lightpink;
   border: solid 1px black;
 }
+
+.hovered {
+    background-color: lightblue;
+}
