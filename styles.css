@@ -6,7 +6,7 @@ body {
 
 #grid-container {
   display: flex;
-  border: solid 1px black;
+  border: solid 1px rgb(213, 240, 183);
   width: 400px;
   height: 400px;
 }
@@ -21,7 +21,7 @@ body {
 .grid-square {
   flex: 1;
   background-color: lightpink;
-  border: solid 1px black;
+  border: solid 1px rgb(213, 240, 183);
 }
 
 .hovered {
