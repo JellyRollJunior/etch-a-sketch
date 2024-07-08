@@ -29,10 +29,20 @@ function removeGrid() {
     });
 }
 
+// remove class: "hovered" from all grid squares
+function resetGrid() {
+    const gridColumns = document.querySelectorAll(".grid-column");
+    gridColumns.forEach((column) => {
+        column.childNodes.forEach((square) => {
+            square.classList.remove("hovered");
+        })
+    });
+}
+
 // prompt user for gridSize
 function getGridSize() {
-    let gridSize = prompt("Please enter a grid size [1 - 100]");
-    if (gridSize === "" || isNaN(gridSize) || gridSize < 1 || gridSize > 100) {
+    let gridSize = prompt("Please enter a grid size [1 - 50]");
+    if (gridSize === "" || isNaN(gridSize) || gridSize < 1 || gridSize > 50) {
         alert("Please enter a valid grid size");
         return null;
     }
@@ -48,6 +58,7 @@ gridContainer.addEventListener("mouseover", (event) => {
     }
 });
 
+// Prompt user for gridSize. If valid, remove current grid and create new grid with gridSize
 const resizeBtn = document.querySelector("#resize");
 resizeBtn.addEventListener("click", () => {
     let gridSize = getGridSize();
@@ -56,6 +67,9 @@ resizeBtn.addEventListener("click", () => {
         createGrid(gridSize);
     }
 });
+
+const resetBtn = document.querySelector("#reset");
+resetBtn.addEventListener("click", resetGrid);
 
 // execution phase
 createGrid();
