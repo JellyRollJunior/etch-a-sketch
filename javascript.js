@@ -22,6 +22,13 @@ function createGrid(gridSize) {
     }
 }
 
+function removeGrid() {
+    const gridColumns = document.querySelectorAll(".grid-column");
+    gridColumns.forEach((column) => {
+        column.remove();
+    });
+}
+
 // prompt user for gridSize
 function getGridSize() {
     let gridSize = prompt("Please enter a grid size [1 - 100]");
@@ -43,9 +50,11 @@ gridContainer.addEventListener("mouseover", (event) => {
 
 const resizeBtn = document.querySelector("#resize");
 resizeBtn.addEventListener("click", () => {
-    // removeGrid();
     let gridSize = getGridSize();
-    // createGrid(gridSize);
+    if (gridSize !== null) {
+        removeGrid();
+        createGrid(gridSize);
+    }
 });
 
 // execution phase
