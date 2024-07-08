@@ -1,18 +1,38 @@
 const gridContainer = document.querySelector("#grid-container");
 
+/* Functions */
 // Create default 16 x 16 grid
-for (let i = 0; i < 16; i++) {
-    const gridColumn = document.createElement("div");
-    gridColumn.classList.add("grid-column");
-    gridContainer.appendChild(gridColumn);
+function createGrid(gridSize) {
+    if (gridSize === null) {
+        return;
+    }
+    if (gridSize === undefined) {
+        gridSize = 16;
+    }
+    for (let i = 0; i < gridSize; i++) {
+        const gridColumn = document.createElement("div");
+        gridColumn.classList.add("grid-column");
+        gridContainer.appendChild(gridColumn);
 
-    for (let j = 0; j < 16; j++) {
-        const square = document.createElement("div");
-        square.classList.add("grid-square");
-        gridColumn.appendChild(square);
+        for (let j = 0; j < gridSize; j++) {
+            const square = document.createElement("div");
+            square.classList.add("grid-square");
+            gridColumn.appendChild(square);
+        }
     }
 }
 
+// prompt user for gridSize
+function getGridSize() {
+    let gridSize = prompt("Please enter a grid size [1 - 100]");
+    if (gridSize === "" || isNaN(gridSize) || gridSize < 1 || gridSize > 100) {
+        alert("Please enter a valid grid size");
+        return null;
+    }
+    return gridSize;
+}
+
+/* Event listeners */
 // Change color of grid-square on mouseover
 gridContainer.addEventListener("mouseover", (event) => {
     let target = event.target;
@@ -20,3 +40,13 @@ gridContainer.addEventListener("mouseover", (event) => {
         target.classList.add("hovered");
     }
 });
+
+const resizeBtn = document.querySelector("#resize");
+resizeBtn.addEventListener("click", () => {
+    // removeGrid();
+    let gridSize = getGridSize();
+    // createGrid(gridSize);
+});
+
+// execution phase
+createGrid();
